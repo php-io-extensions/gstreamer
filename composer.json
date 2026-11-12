@@ -1,0 +1,68 @@
+{
+    "name": "php-io-extensions/gstreamer",
+    "type": "php-ext",
+    "description": "1:1 PHP bindings of GStreamer 1.26: gstreamer, gstreamer-app, gstreamer-video, gstreamer-audio and gstreamer-pbutils",
+    "keywords": [
+        "gstreamer",
+        "video",
+        "audio",
+        "php-ext"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Project Saturn Studios, LLC",
+            "email": "info@projectsaturnstudios.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.11.x-dev"
+        },
+        "venusian": {
+            "system": {
+                "apt": {
+                    "depends": [
+                        "libgstreamer1.0-0",
+                        "libgstreamer-plugins-base1.0-0",
+                        "gstreamer1.0-plugins-base",
+                        "gstreamer1.0-plugins-good"
+                    ]
+                },
+                "brew": {
+                    "build": [
+                        "gstreamer"
+                    ]
+                }
+            }
+        }
+    },
+    "php-ext": {
+        "extension-name": "gstreamer",
+        "priority": 30,
+        "support-zts": true,
+        "support-nts": true,
+        "os-families": [
+            "linux",
+            "darwin"
+        ],
+        "configure-options": [
+            {
+                "name": "enable-gstreamer",
+                "description": "Enable the gstreamer extension",
+                "needs-value": false
+            }
+        ]
+    }
+}

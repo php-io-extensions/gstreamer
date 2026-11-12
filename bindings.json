@@ -1,0 +1,20 @@
+{
+  "symbols": {},
+  "glue": {
+    "*": {"methods": ["pointer", "fromPointer"], "forwards": "address hand-off on every handle class"},
+    "GstError": {"methods": []},
+    "GstMapInfo": {"methods": ["__construct"], "forwards": "a struct the caller allocates for gst_buffer_map: flags, data (a copy of the mapped bytes), size and maxsize as properties; the native map stays in the object for gst_buffer_unmap"},
+    "GstMessage": {"methods": ["type", "timestamp", "src"], "forwards": "the struct's public fields, read live (GST_MESSAGE_TYPE, GST_MESSAGE_TIMESTAMP, GST_MESSAGE_SRC)"},
+    "GstBuffer": {"methods": ["pts", "dts", "duration", "offset"], "forwards": "the struct's public fields, read live (GST_BUFFER_PTS, GST_BUFFER_DTS, GST_BUFFER_DURATION, GST_BUFFER_OFFSET)"},
+    "GstVideoInfo": {"methods": ["finfo", "interlace_mode", "flags", "width", "height", "size", "views", "fps_n", "fps_d", "par_n", "par_d", "stride", "offset"], "forwards": "the struct's public fields, read live; finfo as its GstVideoFormat (GST_VIDEO_INFO_FORMAT), stride and offset as lists of GST_VIDEO_MAX_PLANES ints"},
+    "GstAudioInfo": {"methods": ["finfo", "flags", "layout", "rate", "channels", "bpf"], "forwards": "the struct's public fields, read live; finfo as its GstAudioFormat (GST_AUDIO_INFO_FORMAT)"}
+  },
+  "helpers": {"marshal": ["gstreamer_gobject_arg"], "translate": ["gstreamer_throw_gerror"]},
+  "sites": {
+    "gst-field-released": {"kind": "refusal", "outcome": 1, "probe": "tests/Probes/FieldReleasedTest.php"}
+  },
+  "typemap": {
+    "GObject*": ["GstObject", "GstDiscoverer", "GstDiscovererInfo", "GstDiscovererStreamInfo"],
+    "gpointer": ["GstObject", "GstDiscoverer", "GstDiscovererInfo", "GstDiscovererStreamInfo"]
+  }
+}
